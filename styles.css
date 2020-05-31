@@ -1,0 +1,554 @@
+
+/*=============================================
+Root Section
+=============================================*/
+
+
+/* TODO global and root setup */
+
+
+*,*::before,*::after
+{
+    margin: 0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+/* inherit actually makes all the tags to take the boxsizing property of its parent */
+
+html{
+    font-family: Nunito,sans-serif;
+    font-size: 10px;/*root size so that we ca use rem*/
+    box-sizing: border-box;
+}
+
+
+/* TODO Removing the decor of the anchor and the list tags */
+
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+
+/* TODO Setting initial values for all the necessary elements-(p,body,section,img) */
+
+p{
+    font-size: 1.6rem;
+    /* now em stores the current font size of parent element and rem means relative to root font size (html font size since html is the root)*/
+}
+
+img{
+    width: 100%;
+    max-width:100%;
+    height:auto;
+}
+
+/* The Percentage values are with respect to the dimensions of direct parent */
+/* Many a times the image gets distorted after a certain width and thus we need a max with oproperty to put a cap on how much it is stretching */
+
+section{
+    padding:5rem 0;
+}
+
+body{
+    /* background-color: cornflowerblue; */
+}
+
+
+
+/*=============================================
+Header Section
+=============================================*/
+
+
+/* TODO Setting the dimensions and the position of the header*/
+
+header{
+    width: 100%;
+    height:5rem;
+    /* Find values which can hold the type with sufficient space */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* TODO Setting the box parameters of the container */
+
+.container{
+    width:100% ;
+    max-width: 120rem;
+    /* Basic Centering */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* TODO  Nav width and item alignment using flex*/
+
+nav{
+    width: 100%;
+    display:flex;
+    /* Deals with vertical alignment 
+       Lets say there is one item which has more height than others still their centres would be on same line if align items=center 
+    */
+    align-items:center;
+    
+    /* Deals with horizontal alignment */
+    justify-content:space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255,255, 0.2);
+
+}
+
+/* TODO dimensions,fonts color */
+
+.nav-brand{
+    width: 2rem;
+    height:auto;
+}
+
+.menu-icons i{
+    font-size: 3.5rem;
+    color: #fafafa;
+    cursor: pointer;
+
+
+}
+
+.close i
+{
+    color:#eb648c ;
+}
+
+/* TODO Position the cross on top-left */
+.close{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+
+/* TODO Applying flexbxox to the navlist */
+.nav-list
+{
+    width:25rem;
+    height: 100vh;
+    background-color: #d7d4ed;
+    position: fixed;
+    top: 0;
+    right: -26rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 650ms ease-in-out;
+
+}
+.nav-list.active{
+    right: 0;
+}
+
+.nav-item{
+    margin: 1rem 0;
+}
+
+.nav-link{
+    font-size: 1.5rem;
+    color: rgba(0, 0,0, 0.7);
+    text-transform: uppercase;
+
+}
+
+
+
+
+/*=============================================
+Hero Section
+=============================================*/
+
+
+.hero{
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(135deg,rgba(49,24,131,0.9) 0%,rgba(72,56,149,0.8) 100%)
+    ,url("images/header-bg.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 4.7rem;
+    background: url("images/wave-small.png") center no-repeat;
+    background-size: cover;
+    /* border-bottom: 0; */
+}
+
+.main-message{
+    width: 100%;
+    max-width: 60rem;
+    color :#fafafa;
+    text-transform: uppercase;
+    transform: translateY(10%);
+}
+
+.main-message h3{
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+
+.main-message h1{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-family: 'Aldrich',sans-serif;
+}
+
+.main-message p{
+    text-transform: lowercase;
+}
+
+.btn{
+    background-color: #eb648c;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 2rem;
+    margin-top: 1.5rem;
+    padding:1rem 1.5rem;
+    color: #FAFAFA;
+}
+
+
+
+/*=============================================
+Experience Section
+=============================================*/
+
+.experience{
+    padding: 0;
+}
+
+.title-text{
+    padding-top: 1rem;
+    width:100%;
+    max-width: 50rem;
+    text-transform: uppercase;
+    color: rgba(0, 0,0, 0.7);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title-text h3{
+    font-size: 1.6rem;
+}
+
+.title-text h1{
+    font-size: 2rem;
+    margin: 0.5 0 1.5 0;
+    font-family: 'Aldrich',sans-serif;
+}
+.title-text p{
+    margin-bottom: 3rem;
+}
+
+.adventure-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    grid-gap:2.5rem;
+}
+
+
+.adventure-grid .grid-item{
+    height: 40rem;
+    padding: 0.5rem 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    color: #fafafa;
+
+
+}
+
+.adventure-grid .grid-item::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(135deg,rgba(49,24,131,0.9) 0%,rgba(72,56,149,0.8) 100%);
+    z-index: -1;
+}
+
+
+.stargazing{
+    background-image: linear-gradient(135deg,rgba(49,24,131,0.4) 0%,rgba(72,56,149,0.5) 100%);
+    background: url(images/stars.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.camping{
+    background: url(images/camping.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.hiking{
+    background: url(images/hiking.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.grid-item i{
+    font-size: 3rem;
+    color: #eb648c;
+}
+
+.camping i{
+    font-size: 4rem;
+}
+
+
+.grid-item h3{
+    font-size: 2rem;
+    padding: 1rem 0 1.5rem 0;
+    text-transform: uppercase;
+}
+
+
+
+/*=============================================
+Testimonials Section
+=============================================*/
+
+
+.testimonials{
+    margin: 2rem 0 0 0;
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background: linear-gradient(135deg,rgba(49,24,131,0.9) 0%,rgba(72,56,149,0.8) 100%),
+    url(images/testimonials-bg.jpg) center no-repeat;
+    background-size: cover;
+    color: #fafafa;
+
+}
+
+.testimonials::before{
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 4.7rem;
+    background: url(images/wave-small-reversed.png) center no-repeat;
+    background-size: cover;
+    
+
+}
+
+.testimonial{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.testimonial-text p{
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+.testimonial-text i{
+    position: absolute;
+    top: -8rem;
+    left: 50%;
+    transform: translate(-50%,50%);
+    font-family: Lato,sans-serif;
+    font-size: 5rem;
+    color:#eb648c;
+    opacity: 0.6;
+}
+
+.customer-testimonial img {
+    margin: 2rem 0 0 0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    border: 3px solid #eb648c;
+}
+
+
+
+/*=============================================
+Booking Section
+=============================================*/
+
+.booking{
+    height: 40rem;
+    padding-top: 2rem;
+}
+
+.booking-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    grid-gap:2.5rem;
+    margin-bottom: 2.5rem 0;
+}
+
+.booking-grid-item{
+    height: 20rem;
+}
+
+footer{
+
+    margin-top: 2rem;
+    background-color: #d7d4ed;
+    text-align: center;
+    padding:2rem 2rem;
+    height: 5rem;
+}
+
+
+
+/*=============================================
+Media Queries
+=============================================*/
+
+@media screen and (min-width:350px)
+{
+    .main-message{
+        transform: translateY(40%)
+    }
+}
+
+@media screen and (min-width:470px)
+{
+    .hero::before{
+        height: 9.4rem;
+        background: url(images/wave-medium.png) center no-repeat;
+        background-size: cover;
+    }
+    .testimonials::before{
+        height: 9.4rem;
+        background: url(images/wave-medium-reversed.png) center no-repeat;
+        background-size: cover;
+    }
+
+}
+
+@media screen and (min-width:700px)
+{
+    header{
+        height: 8rem;
+    }
+    .nav-brand{
+        width: 3.5rem;
+
+    }
+    .nav-list{
+        width: initial;
+        height: initial;
+        position: initial;
+        top: initial;
+        right: initial;
+        flex-direction: row;
+        background: transparent;
+
+    }
+    .menu-icons{
+        display: none;
+    }
+    .nav-item{
+        margin: 0 2.5rem;
+        
+    }
+    .nav-link{
+        color: #fafafa;
+    }
+
+    .nav-link::before,
+    .current::before{
+        content="";
+        position: absolute;
+        left: 0;
+        bottom: -.5rem;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        background-color: #eb648c;
+        transform-origin: left;
+        transition: transform 650ms;
+    }
+
+    .current::before{
+        transform: scaleX(1);
+
+    }
+    .nav-link:hover::before{
+        transform: scaleX(1);
+        
+    }
+    /* As screen size increase text looks way too less in area so decreasing the vh */
+    /* .hero{
+        height: 70vh;
+
+    } */
+    /* Same reason bring the message further down to fill space */
+    .main-message{
+        transform: translateY(40%);
+    }
+
+    .title-text h1{
+        font-size:2.5rem ;
+    }
+
+}
+
+@media screen and (min-width:950px)
+{
+    .hero::before{
+        height: 22.7rem;
+        background: url(images/wave-large.png) center no-repeat;
+        background-size: cover;
+    }
+    .testimonials::before{
+        height: 22.7rem;
+        background: url(images/wave-large-reversed.png) center no-repeat;
+        background-size: cover;
+    }
+
+}
+
+@media screen and (min-width:1200px){
+    html{
+        font-size: 10px;
+    }
+    .hero{
+        height: 80vh;
+    }
+    .testimonials {
+        height: 80vh;
+
+    }
+    .testimonial{
+        position: absolute;
+        top: 70%;
+    }
+    .testimonial i{
+        font-size: 6rem;
+    }
+    
+}
